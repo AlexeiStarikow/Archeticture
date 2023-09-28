@@ -1,0 +1,32 @@
+@startuml
+abstract class testConnection.Animal {
+~ void breathe()
+}
+interface testConnection.Eatable {
+~ void eat()
+}
+class testConnection.Mammal {
+}
+class testConnection.Human {
+~ Cat petCat
++ void eat()
+~ void ownCat(Cat)
+}
+class testConnection.Cat {
+~ void meow()
+}
+class testConnection.House {
+~ Room room
+}
+class testConnection.Room {
+~ void description()
+}
+class testConnection.Main {
++ {static} void main(String[])
+}
+
+
+testConnection.Animal <|-- testConnection.Mammal
+testConnection.Eatable <|.. testConnection.Human
+testConnection.Mammal <|-- testConnection.Human
+@enduml

@@ -1,0 +1,36 @@
+@startuml
+class testElement.Car {
+~ FuelType fuelType
+- int speed
++ String color
++ void accelerate()
++ void brake()
++ void drive()
+~ void start()
+}
+interface testElement.Drivable {
+~ void drive()
+}
+abstract class testElement.Vehicle {
+~ String make
+~ {abstract}void start()
+}
+enum testElement.FuelType {
++  PETROL
++  DIESEL
++  ELECTRIC
+}
+class testElement.ElectricCar {
+~ int batteryLife
+~ void charge()
+~ void start()
+}
+class testElement.Main {
++ {static} void main(String[])
+}
+
+
+testElement.Drivable <|.. testElement.Car
+testElement.Vehicle <|-- testElement.Car
+testElement.Car <|-- testElement.ElectricCar
+@enduml
