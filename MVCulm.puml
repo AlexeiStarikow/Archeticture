@@ -1,0 +1,46 @@
+@startuml
+class calculatorMVC.model.substractOperation.SubstractOperation {
+~ double firstArg
+~ double secondArg
++ double subtract()
+}
+class calculatorMVC.Main {
++ {static} void main(String[])
+}
+class calculatorMVC.model.CalculationLayer {
++ double add(double,double)
++ double subtract(double,double)
++ double multiply(double,double)
++ double divide(double,double)
+}
+class calculatorMVC.view.InputOutputLayer {
+~ String getInput()
+~ void displayOutput(String)
+}
+class calculatorMVC.model.sumOperation.SumOperation {
+~ double firstArg
+~ double secondArg
++ double sum()
+}
+class calculatorMVC.view.ConsoleView {
+~ InputOutputLayer ioLayer
+~ CalculationLayer calcLayer
++ void runCalculator()
+}
+class calculatorMVC.db.DatabaseManagementSlice {
+~ void saveData(String)
+~ String fetchData()
+}
+class calculatorMVC.view.InputSlice {
+~ String getInput()
+}
+class calculatorMVC.view.OutputSlice {
+~ void displayOutput(String)
+}
+interface calculatorMVC.view.IView {
+~ void runCalculator()
+}
+
+
+calculatorMVC.view.IView <|.. calculatorMVC.view.ConsoleView
+@enduml
